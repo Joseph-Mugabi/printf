@@ -34,6 +34,10 @@ int _printf(const char *format, ...)
 				count += print_integer(list);
 				i += 2;
 				break;
+			case 'b':
+				count += _print_binary(list);
+				i += 2;
+				break;
 			default:
 				_putchar(format[i]);
 				_putchar(format[i + 1]);
