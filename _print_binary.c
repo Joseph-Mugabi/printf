@@ -25,7 +25,7 @@ int convert(unsigned int n, int *count)
  */
 int _print_binary(va_list list)
 {
-	unsigned int ;
+	unsigned int n;
 	int count = 0;
 
 	n = va_arg(list, unsigned int);
