@@ -3,7 +3,7 @@
 /**
  * print_char - prints character to the stdout
  *
- * @va_list: list from the _printf
+ * @list: list from the _printf
  * Return: 1
  */
 int print_char(va_list list)

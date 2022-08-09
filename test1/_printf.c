@@ -13,8 +13,8 @@ int _printf(const char *format, ...)
 	int i = 0, count  = 0;
 
 	va_list list;
-	va_start(list, format);
 
+	va_start(list, format);
 	while (format[i])
 	{
 		while (format[i] == '%')
@@ -30,6 +30,10 @@ int _printf(const char *format, ...)
 				count++;
 				i += 2;
 				break;
+			case 'i':
+				count += print_integer(list);
+				i += 2;
+				break;
 			default:
 				_putchar(format[i]);
 				_putchar(format[i + 1]);
@@ -37,7 +41,7 @@ int _printf(const char *format, ...)
 				break;
 			}
 		}
-		if (format[i])	
+		if (format[i])
 		{
 			_putchar(format[i]);
 			count++;
