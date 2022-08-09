@@ -10,9 +10,11 @@
 int convert(unsigned int n, int *count)
 {
 	if (n / 2)
+	{
 		convert(n / 2, count);
 		_putchar((n % 2) + '0');
 		(*count)++;
+	}
 	return (0);
 }
 /**
@@ -23,7 +25,8 @@ int convert(unsigned int n, int *count)
  */
 int _print_binary(va_list list)
 {
-	unsigned int n, count = 0;
+	unsigned int n;
+	int count = 0;
 
 	n = va_arg(list, unsigned int);
 	convert(n, &count);
