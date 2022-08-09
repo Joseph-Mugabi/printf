@@ -25,6 +25,11 @@ int _printf(const char *format, ...)
 				count += print_char(list);
 				i += 2;
 				break;
+			case '%':
+				_putchar('%');
+				count++;
+				i += 2;
+				break;
 			default:
 				_putchar(format[i]);
 				_putchar(format[i + 1]);
