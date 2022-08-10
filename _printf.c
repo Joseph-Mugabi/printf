@@ -10,48 +10,28 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0, count  = 0;
+	int count;
 
+	datatype choice[] = {
+		{"c", print_char},
+		{"%", print_percent},
+		{"d", print_integer},
+		{"i", print_integer},
+		{"s", print_string},
+		{"b", _print_binary},
+		{NULL, NULL}
+
+	};
 	va_list list;
 
-	va_start(list, format);
-	while (format[i])
+	if (format == NULL)
 	{
-		while (format[i] == '%')
-		{
-			switch (format[i + 1])
-			{
-			case 'c':
-				count += print_char(list);
-				i += 2;
-				break;
-			case '%':
-				_putchar('%');
-				count++;
-				i += 2;
-				break;
-			case 'i':
-				count += print_integer(list);
-				i += 2;
-				break;
-			case 'b':
-				count += _print_binary(list);
-				i += 2;
-				break;
-			default:
-				_putchar(format[i]);
-				_putchar(format[i + 1]);
-				i += 2;
-				break;
-			}
-		}
-		if (format[i])
-		{
-			_putchar(format[i]);
-			count++;
-		}
-		i++;
+		return (-1);
 	}
+	va_start(list, format);
+
+	count = func_link(format, choice, list);
+
 	va_end(list);
 	return (count);
 }
