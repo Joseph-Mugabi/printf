@@ -7,15 +7,12 @@
  *
  * Return: 0
  */
-int convert(unsigned int n, int *count)
+void convert(unsigned int n, int *count)
 {
 	if (n / 2)
-	{
 		convert(n / 2, count);
-		_putchar((n % 2) + '0');
-		(*count)++;
-	}
-	return (0);
+	_putchar((n % 2) + '0');
+	(*count)++;
 }
 /**
  * _print_binary - prints an integer to  binary base

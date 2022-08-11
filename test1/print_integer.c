@@ -91,3 +91,44 @@ int print_percent(__attribute__((unused))va_list list)
 	_putchar('%');
 	return (1);
 }
+/**
+ * print_unsgined_int - prints unsigned int to stdout
+ *@list: list from _printf
+ *Return: count
+ */
+int print_unsigned_int(va_list list)
+{
+	int count = 0;
+	unsigned int length, p, i, d, n, number;
+
+	n = va_arg(list, unsigned int);
+	if (n != 0)
+	{
+		number = n;
+		length = 0;
+		while (number != 0)
+		{
+			number /= 10;
+			length++;
+		}
+		p  =1;
+		for(i = 1; i <= length - 1; i++)
+		{
+			p *= 10;
+		}
+		for (i = 1; i <= length; i++)
+		{
+			d = n / p;
+			_putchar(d + '0');
+			count++;
+			n -= (d * p);
+			p /= 10;
+		}
+	}
+	else
+	{
+		_putchar('0');
+		return (1);
+	}
+	return (count);
+}

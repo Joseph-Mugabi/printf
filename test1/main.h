@@ -24,5 +24,9 @@ int _print_binary(va_list);
 int func_link(const char *format, datatype choice[], va_list list);
 int print_percent(va_list);
 int print_string(va_list list);
+int print_unsigned_int(va_list list);
+int print_octal(va_list);
+int print_HEX(va_list);
+int print_hex(va_list);
 
 #endif
