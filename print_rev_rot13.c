@@ -87,8 +87,8 @@ int rot13(va_list list)
 			if (str[j] == s[x])
 			{
 				_putchar(u[x]);
-				break;
 			}
+			break;
 		}
 		if (x == 53)
 			_putchar(str[j]);
@@ -103,9 +103,9 @@ int rot13(va_list list)
 int print_S(va_list list)
 {
 	int count = 0, j = 0;
-	char c, *str;
+	char c;
+	char *str = va_arg(list, char *);
 
-	str = va_arg(list, char *);
 	if (str == NULL || *str == '\0')
 		return (0);
 	while (str[j])
