@@ -87,16 +87,16 @@ int rot13(va_list list)
 			if (str[j] == s[x])
 			{
 				_putchar(u[x]);
-				count++;
 				break;
 			}
 		}
 		if (x == 53)
 			_putchar(str[j]);
+			count++;
 		j++;
 
 	}
-	return (j);
+	return (count);
 }
 /**
  *  print_S - prints custom specifier
