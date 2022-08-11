@@ -71,7 +71,7 @@ int print_rev(va_list list)
 */
 int rot13(va_list list)
 {
-	int j, count = 0;
+	int j;
 	int x;
 	char *str;
 	char s[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -92,9 +92,6 @@ int rot13(va_list list)
 		}
 		if (x == 53)
 			_putchar(str[j]);
-			count++;
-		j++;
-
 	}
 	return (count);
 }
@@ -105,27 +102,27 @@ int rot13(va_list list)
  */
 int print_S(va_list list)
 {
-	int count = 0, j = 0;
-	char c;
-	char *str = va_arg(list, char *);
+int count = 0, j = 0;
+char c;
+char *str = va_arg(list, char *);
 
-	if (str == NULL || *str == '\0')
-		return (0);
-	while (str[j])
-	{
-		c = str[j];
-		if ((c > 0 && c < 32) || c >= 127)
-		{
-			count += _putchar('\\');
-			count += _putchar('x');
-			count += _putchar('0');
-			count += _printf("%X", (unsigned int) c);
-		}
-		else
-		{
-			count += _putchar(c);
-		}
-		j++;
-	}
-	return (count);
+if (str == NULL || *str == '\0')
+return (0);
+while (str[j])
+{
+c = str[j];
+if ((c > 0 && c < 32) || c >= 127)
+{
+count += _putchar('\\');
+count += _putchar('x');
+count += _putchar('0');
+count += _printf("%X", (unsigned int) c);
+}
+else
+{
+count += _putchar(c);
+}
+j++;
+}
+return (count);
 }
