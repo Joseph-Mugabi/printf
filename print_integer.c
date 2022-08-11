@@ -41,10 +41,43 @@ int print_num(va_list list)
  */
 int print_integer(va_list list)
 {
-	int num_len;
+	int num_len = 0, len, i, count, n, p, num;
 
-	num_len = print_num(list);
-	num_len++;
+	n = va_arg(list, int);
+	if (n != 0)
+	{
+		if (n < 0)
+		{
+			_putchar('-');
+			num_len++;
+		}
+		num = n;
+		len = 0;
+		while (num != 0)
+		{
+			num /= 10;
+			len++;
+		}
+		p = 1;
+		for (i = 1; i <= len - 1; i++)
+			p *= 10;
+		for (i = 1; i <= len; i++)
+		{
+			count = n / p;
+			if (n < 0)
+				_putchar((count * -1) + 48);
+			else
+				_putchar(count + '0');
+			num_len++;
+			n -= (count * p);
+			p /= 10;
+		}
+	}
+	else
+	{
+		_putchar('0');
+		return (1);
+	}
 	return (num_len);
 }
 /**
