@@ -71,7 +71,7 @@ int print_rev(va_list list)
 */
 int rot13(va_list list)
 {
-	int j;
+	int j, count = 0;
 	int x;
 	char *str;
 	char s[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -87,11 +87,14 @@ int rot13(va_list list)
 			if (str[j] == s[x])
 			{
 				_putchar(u[x]);
+				count++;
 				break;
 			}
 		}
 		if (x == 53)
 			_putchar(str[j]);
+		j++;
+
 	}
 	return (j);
 }
@@ -103,9 +106,9 @@ int rot13(va_list list)
 int print_S(va_list list)
 {
 	int count = 0, j = 0;
-	char c, *str;
+	char c;
+	char *str = va_arg(list, char *);
 
-	str = va_arg(list, char *);
 	if (str == NULL || *str == '\0')
 		return (0);
 	while (str[j])
