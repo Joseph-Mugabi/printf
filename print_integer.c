@@ -42,12 +42,8 @@ int print_integer(va_list list)
  * Return: return the amount of characters printed.
  *
  */
-int print_percent(va_list list)
+int print_percent(__attribute__((unused))va_list list)
 {
-	int count;
-
-	count = _putchar(va_arg(list, int));
 	_putchar('%');
-	count++;
 	return (1);
 }
