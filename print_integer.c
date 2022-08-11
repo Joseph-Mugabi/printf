@@ -45,7 +45,7 @@ int print_integer(va_list list)
 int print_percent(va_list list)
 {
 	int count;
-	
+
 	count = _putchar(va_arg(list, int));
 	_putchar('%');
 	count++;
