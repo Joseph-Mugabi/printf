@@ -23,6 +23,9 @@ int _printf(const char *format, ...)
 		{"o", print_octal},
 		{"x", print_hex},
 		{"X", print_HEX},
+		{"R", rot13},
+		{"r", print_rev},
+		{"S", print_S},
 		{NULL, NULL}
 
 	};

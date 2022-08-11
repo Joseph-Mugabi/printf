@@ -28,5 +28,9 @@ int print_unsigned_int(va_list list);
 int print_octal(va_list);
 int print_HEX(va_list);
 int print_hex(va_list);
+int print_rev(va_list);
+int rot13(va_list);
+int print_S(va_list);
+
 
 #endif
