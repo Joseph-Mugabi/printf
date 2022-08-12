@@ -26,6 +26,7 @@ int _printf(const char *format, ...)
 		{"R", rot13},
 		{"r", print_rev},
 		{"S", print_S},
+		{"p", print_address},
 		{NULL, NULL}
 
 	};

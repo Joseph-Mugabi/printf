@@ -31,6 +31,7 @@ int print_hex(va_list);
 int print_rev(va_list);
 int rot13(va_list);
 int print_S(va_list);
-
+int print_address(va_list);
+int _puts(char *str);
 
 #endif
