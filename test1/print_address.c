@@ -10,18 +10,19 @@
 char *conver_t(unsigned long int num, int base, int lowercase)
 {
 	static char *rep;
-	static char buf[50];
+	static char buffer[50];
 	char *p;
 
 	rep = (lowercase)
 		? "0123456789abcdef"
 		: "0123456789ABCDEF";
-	p = &buf[9];
+	p = &buffer[9];
 	*p = '\0';
 	do {
 		*--p = rep[num % base];
 		num /= base;
 	} while (num != 0);
+	
 	return (p);
 }
 /**

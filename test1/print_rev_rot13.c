@@ -128,9 +128,8 @@ int print_S(va_list list)
 		else
 		{
 			count += _putchar(c);
-			j++;
 		}
+		j++;
 	}
 	return (count);
-
 }
