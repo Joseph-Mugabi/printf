@@ -79,10 +79,12 @@ int rot13(va_list list)
 
 	str = va_arg(list, char *);
 	if (str == NULL)
+	{
 		return (-1);
+	}
 	for (j = 0; str[j] != '\0'; j++)
 	{
-		for (x = 0; x < 52; x++)
+		for (x = 0; x <= 52; x++)
 		{
 			if (str[j] == s[x])
 			{
@@ -91,9 +93,11 @@ int rot13(va_list list)
 			}
 		}
 		if (x == 53)
+		{
 			_putchar(str[j]);
+		}
 	}
-	return (count);
+	return (j);
 }
 /**
  *  print_S - prints custom specifier
@@ -102,27 +106,31 @@ int rot13(va_list list)
  */
 int print_S(va_list list)
 {
-int count = 0, j = 0;
-char c;
-char *str = va_arg(list, char *);
+	int count = 0, j = 0;
+	char *str;
+	char c;
 
-if (str == NULL || *str == '\0')
-return (0);
-while (str[j])
-{
-c = str[j];
-if ((c > 0 && c < 32) || c >= 127)
-{
-count += _putchar('\\');
-count += _putchar('x');
-count += _putchar('0');
-count += _printf("%X", (unsigned int) c);
-}
-else
-{
-count += _putchar(c);
-}
-j++;
-}
-return (count);
+	str = va_arg(list, char *);
+	if (str == NULL || *str == '\0')
+	{
+		return (0);
+	}
+	while (str[j])
+	{
+		c = str[j];
+		if ((c > 0 && c < 32) || c >= 127)
+		{
+			count += _putchar('\\');
+			count += _putchar('x');
+			count += _putchar('0');
+			count += _printf("%X", (unsigned int) c);
+		}
+		else
+		{
+			count += _putchar(c);
+		}
+		j++;
+	}
+	return (count);
+
 }
