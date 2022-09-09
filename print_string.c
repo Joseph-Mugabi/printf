@@ -1,34 +1,24 @@
 #include "main.h"
-
 /**
- *  print_string - loops through a string and prints
- *  every character
- *  @l: va_list arguments from _printf
- *  @f: pointer to the struct flags that determines
- * if a flag is passed to _printf
- * Return: number of char printed
+ * print_s - takes string and return string
+ * @list: string
+ * Return: string
  */
-int print_string(va_list l, flags_t *f)
+char *print_s(va_list list)
 {
-	char *s = va_arg(l, char *);
+	char *s;
+	char *p;
+	int len;
 
-	(void)f;
-
-	if (!s)
+	s = va_arg(list, char *);
+	if (s == NULL)
 		s = "(null)";
-	return (_puts(s));
-}
 
-/**
- *  print_char - prints a character
- *  @l: va_list arguments from _printf
- *  @f: pointer to the struct flags that determines
- *  if a flag is passed to _printf
- * Return: number of char printed
- */
-int print_char(va_list l, flags_t *f)
-{
-	(void)f;
-	_putchar(va_arg(l, int));
-	return (1);
+	len = _strlen(s);
+
+	p = malloc(sizeof(char) * len + 1);
+	if (p == NULL)
+		return (NULL);
+
+	return (_strcpy(p, s));
 }

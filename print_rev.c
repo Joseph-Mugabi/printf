@@ -1,27 +1,32 @@
 #include "main.h"
 
 /**
- * print_rev - prints astring in reverse
- * @r: string to print
- *
- * Return: number of chars printed
+ * rev_string - reverses a string
+ * @list: string to reverse
+ * Return: reversed string
  */
-int print_rev(va_list r, flags_t *f)
+
+char *rev_string(va_list list)
 {
-	char *st;
-	int i, j = 0;
+        char *rev;
+	char *str;
+	int i = 0, len, j;
 
-	st = va_arg(r, char *);
+	str = va_arg(list, char *); /* store argument to access only once */
+	if (str == NULL)
+		str = ")llun(";
 
-	(void)f;
-	if (st == NULL)
-		st = ")llun(";
-	for (i = 0; st[i] != '\0'; i++)
-		;
-	for (i -= 1 ; i >= 0; i--)
+	len = _strlen(str);
+
+	rev = malloc(sizeof(char) * (len + 1)); /* malloc new variable */
+	if (rev == NULL)
+		return (NULL);
+
+	for(j = (len - 1); j >= 0; j--) /* store reverse in new variable */
 	{
-		_putchar(st[i]);
-		j++;
+		rev[i++] = str[j];
 	}
-	return (j);
+	rev[i] = '\0';
+
+	return (rev);
 }
