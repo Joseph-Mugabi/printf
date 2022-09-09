@@ -104,7 +104,7 @@ int _printf(const char *format, ...)
 /**
  * main - sample main program
  * Return: 0 on sucess
- */
+ /
 int main(void)
 {
 	_printf("\n\n\nHere's some examples of what you could do with this custom_printf function!\n\n\n");
@@ -121,4 +121,4 @@ int main(void)
 	sleep(1);
 	_printf("\n\n             = )                  \n\n\n");
 	return (0);
-}
+}*/
